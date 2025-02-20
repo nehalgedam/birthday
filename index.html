@@ -149,6 +149,7 @@
         // Auto-hide popup after 5 seconds
         window.onload = function() {
             setTimeout(closePopup, 5000);
+            loadNames();
         };
         
         function submitName() {
@@ -170,6 +171,8 @@
                 newItem.innerHTML = `<input type='checkbox' class='name-checkbox'> <span><b>${name}</b>: ${message}</span>`;
                 nameList.appendChild(newItem);
                 
+                saveName(name, message);
+                
                 document.getElementById('thankYou').style.display = 'block';
                 setTimeout(() => { document.getElementById('thankYou').style.display = 'none'; }, 2000);
                 document.getElementById('name').value = "";
@@ -185,12 +188,38 @@
             let password = prompt("Enter password to delete selected names:");
             if (password === "pillu143") { // Change this to a secure password
                 document.querySelectorAll('.name-checkbox:checked').forEach(checkbox => {
-                    checkbox.parentElement.remove();
+                    deleteName(checkbox.parentElement);
                 });
                 alert("Selected names deleted successfully!");
             } else {
                 alert("Incorrect password!");
             }
+        }
+
+        function saveName(name, message) {
+            let names = JSON.parse(localStorage.getItem('names')) || [];
+            names.push({ name, message });
+            localStorage.setItem('names', JSON.stringify(names));
+        }
+
+        function loadNames() {
+            let names = JSON.parse(localStorage.getItem('names')) || [];
+            let nameList = document.getElementById('nameList');
+            names.forEach(item => {
+                let newItem = document.createElement('div');
+                newItem.classList.add('name-item');
+                newItem.innerHTML = `<input type='checkbox' class='name-checkbox'> <span><b>${item.name}</b>: ${item.message}</span>`;
+                nameList.appendChild(newItem);
+            });
+        }
+
+        function deleteName(element) {
+            let nameItem = element.parentElement;
+            let name = nameItem.querySelector('span').innerText.split(':')[0].trim();
+            let names = JSON.parse(localStorage.getItem('names')) || [];
+            names = names.filter(item => item.name !== name);
+            localStorage.setItem('names', JSON.stringify(names));
+            nameItem.remove();
         }
     </script>
 </body>
