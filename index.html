@@ -9,9 +9,10 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            overflow: auto; /* Changed from hidden to auto to enable scrolling */
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #ffdde1);
             position: relative;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4, #ffdde1); /* प्यारा बर्थडे कलर */
         }
 
         .popup {
@@ -31,9 +32,7 @@
             to { opacity: 1; }
         }
 
-        .hide {
-            display: none;
-        }
+        .hide { display: none; }
 
         .birthday-text {
             font-size: 40px;
@@ -41,7 +40,6 @@
             color: #ff0000;
             text-shadow: 2px 2px 10px white;
             animation: zoomIn 2s ease-in-out infinite alternate;
-            white-space: pre-line;
         }
 
         @keyframes zoomIn {
@@ -83,50 +81,54 @@
             color: #333;
         }
 
-        .name-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .scroll-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: red;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
         }
 
-        .note {
-            margin-top: 10px;
-            font-size: 14px;
-            color: red;
-            font-weight: bold;
+        img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            animation: fadeZoom 2s ease-in-out;
+        }
+
+        @keyframes fadeZoom {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="popup" id="popup">
-        <h2>Welcome to Girlfriend Birthday ❤🫰</h2>
+        <h2>Welcome to My Girlfriend Birthday ❤️🫰</h2>
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <!-- Removed PNG images -->
+    <h1 class="birthday-text">Happy Birthday My Dear Love Devyani ❤️🎂💖</h1>
 
-    <h1 class="birthday-text">Happy Birthday My Dear Love Devyani ❤🎂💖</h1>
-    
-    <!-- Adjusted photos before Hello Everyone -->
-    <div style="text-align: center;">
-        <img src="photo1.jpg" alt="Photo 1" style="width: 200px; height: auto; margin: 10px;">
-        <img src="photo2.png" alt="Photo 2" style="width: 200px; height: auto; margin: 10px;">
-        <!-- Removed photo3.png -->
-        <img src="photo4.jpg" alt="Photo 4" style="width: 200px; height: auto; margin: 10px;">
-        <img src="photo5.jpg" alt="Photo 5" style="width: 200px; height: auto; margin: 10px;">
+    <div>
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.png" alt="Photo 2">
+        <img src="photo4.jpg" alt="Photo 4">
+        <img src="photo5.jpg" alt="Photo 5">
     </div>
 
     <p class="message">Hello Everyone,</p>
-    <p class="message">Aaj ka din hum sab ke liye bahut khaas hai sab ke liye  khas din hai ya nahi pata nahi but mere liye to aaj ka din bahut khaas hai kyunki aaj mere pyar ka Birthday hai 🎂🎉. Waise to mai usko pyar se bohot kuch bulata hu but apke liye bata du uska naam Devyani hai. So my dear love , tumhara is duniya mein hona mere liye ek anmol tofa hai 🎁. Tumhari muskurahat 😊, tumhari khushiyon se bhari awaz 🎶 aur tumhara pyaar ❤ mere dark life ko roshni se bhar deti hain 🌟.</p>
+    <p class="message">Aaj ka din hum sab ke liye bahut khaas hai sab ke liye khas din hai ya nahi pata nahi but mere liye to aaj ka din bahut khaas hai kyunki aaj mere pyar ka Birthday hai 🎂🎉. Waise to mai usko pyar se bohot kuch bulata hu but apke liye bata du uska naam Devyani hai. So my dear love, tumhara is duniya mein hona mere liye ek anmol tofa hai 🎁. Tumhari muskurahat 😊, tumhari khushiyon se bhari awaz 🎶 aur tumhara pyaar ❤ mere dark life ko roshni se bhar deti hain 🌟.</p>
     <p class="message">Jab se main tumse mila hoon, meri zindagi mein naye rang bhar gaye hain 🎨. Tumne har pal ko khaas banaya hai aur mujhe ek behtar insaan banne mein madad ki hai 💪. Tumhara pyaar, support aur samajh mere life ka ek important hissa ban gaye hain 👫.</p>
     <p class="message">My Dear Devyani, tumhare is khaas din par, main yeh kehna chahta hoon ki tumhare saath mere jitne bhi pal bitaye hain, woh sab mere dil ke kareeb hain 💖. Har chhoti baat, har hasi ka pal, sab kuch yaadgaar hai 😄. Tumhara pyaar aur sath mujhe har waqt motivation dete hain 🌟.</p>
     <p class="message">Main dua karta hoon ki tumhara yeh din khushiyon se bhara ho 🎈 aur tumhara har sapna poora ho 🎯. Tumhare liye mere dil mein sirf pyaar aur respect hai aur main hamesha tumhare saath tha hoon aur rahunnga 🤗.</p>
     <p class="message">Happy Birthday, Devyani! Tumhe bohat saari khushiyan aur pyaar bhara din mubarak ho! 🎉🥳🎈💐🍰✨</p>
     <p class="message">I hope ki tumhe mera ye gift pasand ayaa ho. 😊 Agar pasand na aaye to naraj maat hona because mai ek coder hu ek coder website, apps, games banane ke alwa kyahe kar sakta hai. But Agar mai pass hota to tumhe ek accha sa gift jarur deta issliye agr passand naa aye to batana. Yaar pasand na ayee to maat he batana bohat din lage hai isse banana mai 😉. Majak kar raha hu pasand na aye to tum bol sakti ho waise bhi tumhare age meri kaha chalti hai.</p>
     <p class="message">Once again Happy Birthday My Dear Love ❤ Enjoy you special day 🙆‍♂</p>
-
-    <p class="message">You are the most special person in my life. I love you so much! 🥰💞</p>
-    <p class="message">💌 "Har saans me tera naam lenge, tujhe har din aur zyada pyar karenge!" 💝</p>
 
     <div class="name-input">
         <input type="text" id="name" placeholder="Enter your name">
@@ -137,84 +139,96 @@
     <p class="thank-you" id="thankYou">Thank you! 🫰🫠</p>
     <div class="name-list" id="nameList"></div>
 
-    <button onclick="selectAllNames()">Select All</button>
-    <button onclick="deleteSelectedNames()">Delete Selected</button>
-    <p class="note">Only Birthday Girl can delete the names.</p>
+    <button class="scroll-btn" id="scrollBtn" onclick="scrollToTop()">⬆️</button>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            databaseURL: "YOUR_DATABASE_URL",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCdwLEoPcLDrCr4g0mZ-OZkwRCuKSXWoEI",
+            authDomain: "birthday-website-a23e5.firebaseapp.com",
+            projectId: "birthday-website-a23e5",
+            storageBucket: "birthday-website-a23e5.firebasestorage.app",
+            messagingSenderId: "170254584364",
+            appId: "1:170254584364:web:8415e4a7591f8638dd5f89"
         };
+
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
 
         function closePopup() {
             document.getElementById('popup').classList.add('hide');
         }
 
-        // Auto-hide popup after 5 seconds
         window.onload = function() {
             setTimeout(closePopup, 5000);
             loadNames();
         };
-        
+
+        // Show or hide the scroll button
+        window.onscroll = function() {
+            let scrollBtn = document.getElementById('scrollBtn');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
         function submitName() {
             let name = document.getElementById('name').value.trim();
             let message = document.getElementById('userMessage').value.trim();
-            let badWords = ["gali1", "gali2", "gali3"]; // Replace with actual bad words
-            
+            let badWords = ["badword1", "badword2", "badword3"]; // Add your bad words
+
             let isBadWord = badWords.some(word => name.toLowerCase().includes(word) || message.toLowerCase().includes(word));
-            
+
             if (isBadWord) {
                 alert("Inappropriate words are not allowed!");
                 return;
             }
-            
+
+            let nameList = document.getElementById('nameList');
+            let existingNames = Array.from(document.querySelectorAll('.name-item span')).map(span => span.innerText.split(':')[0].trim());
+
+            if (existingNames.includes(name)) {
+                alert("You have already submitted a message.");
+                return;
+            }
+
             if (name !== "" && message !== "") {
-                let nameList = document.getElementById('nameList');
                 let newItem = document.createElement('div');
                 newItem.classList.add('name-item');
-                newItem.innerHTML = `<input type='checkbox' class='name-checkbox'> <span><b>${name}</b>: ${message}</span>`;
+                newItem.innerHTML = `<span><b>${name}</b>: ${message}</span>`;
                 nameList.appendChild(newItem);
-                
+
                 saveName(name, message);
-                
-                document.getElementById('thankYou').style.display = 'block';
-                setTimeout(() => { document.getElementById('thankYou').style.display = 'none'; }, 2000);
+
+                // Show thank you message and clear input fields
+                let thankYou = document.getElementById('thankYou');
+                thankYou.style.display = 'block';  // Make sure it's visible
+                thankYou.style.opacity = 0; // Start with opacity 0
+                setTimeout(() => {
+                    thankYou.style.opacity = 1; // Fade in
+                }, 10); // Small delay for smoother transition
+
+                setTimeout(() => {
+                    thankYou.style.display = 'none';
+                }, 2000);
+
                 document.getElementById('name').value = "";
                 document.getElementById('userMessage').value = "";
             }
         }
-        
-        function selectAllNames() {
-            document.querySelectorAll('.name-checkbox').forEach(checkbox => checkbox.checked = true);
-        }
-        
-        function deleteSelectedNames() {
-            let password = prompt("Enter password to delete selected names:");
-            if (password === "pillu143") { // Change this to a secure password
-                document.querySelectorAll('.name-checkbox:checked').forEach(checkbox => {
-                    deleteName(checkbox.parentElement);
-                });
-                alert("Selected names deleted successfully!");
-            } else {
-                alert("Incorrect password!");
-            }
-        }
 
         function saveName(name, message) {
-            let newNameRef = firebase.database().ref('names').push();
-            newNameRef.set({
+            database.ref('names').push({
                 name: name,
                 message: message
             });
@@ -222,27 +236,16 @@
 
         function loadNames() {
             let nameList = document.getElementById('nameList');
-            firebase.database().ref('names').on('value', (snapshot) => {
+            database.ref('names').on('value', (snapshot) => {
                 nameList.innerHTML = '';
                 snapshot.forEach((childSnapshot) => {
                     let item = childSnapshot.val();
                     let newItem = document.createElement('div');
                     newItem.classList.add('name-item');
-                    newItem.innerHTML = `<input type='checkbox' class='name-checkbox'> <span><b>${item.name}</b>: ${item.message}</span>`;
+                    newItem.innerHTML = `<span><b>${item.name}</b>: ${item.message}</span>`;
                     nameList.appendChild(newItem);
                 });
             });
-        }
-
-        function deleteName(element) {
-            let nameItem = element.parentElement;
-            let name = nameItem.querySelector('span').innerText.split(':')[0].trim();
-            firebase.database().ref('names').orderByChild('name').equalTo(name).once('value', (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
-                    childSnapshot.ref.remove();
-                });
-            });
-            nameItem.remove();
         }
     </script>
 </body>
